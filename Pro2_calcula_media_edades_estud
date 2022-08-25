@@ -1,0 +1,53 @@
+/*librerias*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+
+/*variables*/
+
+#define clear_buffer() int c; while ((c = getchar()) != '\n' && c != EOF) { }
+
+/*funciones*/
+
+
+int main() {
+    int edad;
+    char res;
+    float mean=0;
+    int n = 0;
+
+    int *edades = (int *)malloc(sizeof (int));
+
+    /*pide n numero de edades*/
+    do{
+        printf("Ingresa la edad: ");
+        scanf("%d", &edades[n]);
+        
+        clear_buffer();
+
+        printf("Deseas agregar otra edad? [y/N]");
+        scanf("%c", &res);
+        n++;
+
+        edades = realloc(edades, n*sizeof(int*));
+
+    }while(res == 'y');
+
+    /* calcula la media*/
+    int k;
+    for(k=0;k<n;k++){
+        mean += edades[n];
+    }
+
+    mean/=n;
+
+    /*muestra la media*/
+    printf("La media es: %f", mean);
+
+
+
+    return 0;
+}
+
+
+
