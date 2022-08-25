@@ -1,0 +1,43 @@
+
+/*librerias*/
+#include <stdio.h>
+
+/*variables*/
+#define MAX_ARRAY 1000
+
+/*funciones*/
+
+int main(){
+    
+    int n;
+    
+    int array[MAX_ARRAY];
+    array[0]=0;
+    int k,j;
+    
+    for(k=0; k<MAX_ARRAY ; k++){
+        array[k]=k+1;
+    }
+    
+    
+    printf("Escriba un valor de numeros para buscar los numeros primos: \n");
+    scanf("%d", &n);
+    
+    /* metodo de eratostenes*/
+    
+    if(array[k] % j+1==0)
+    for(k=1; k < n;k++){
+        for(j=k+1;j<n; j++){
+            if(array[j] % array[k] ==0 && array[k]!=0){
+                array[j]=0;
+            }
+        }
+    }
+    
+    for(k=0; k<n; k++)
+    printf("%d",array[k]);
+    printf("Los numeros primos son: ");
+    
+
+    return 0;
+}
